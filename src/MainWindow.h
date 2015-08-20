@@ -31,6 +31,8 @@ private:
 	void createToolsMenu();
 	void createHelpMenu();
 private:
+	void setPosition();
+private:
 	QMenu* databaseMenu_;
 	QMenu* tableMenu_;
 	QMenu* indexMenu_;
@@ -41,9 +43,13 @@ private:
 	
 //Actions:
 	QAction* aboutAction_;
+	QAction* newDatabaseAction_;
+	QAction* quitAction_;
 
 private slots:
-	void onAboutAction();
+	void onAbout();
+	void onNewDatabase();
+	void onQuit();
 
 };
 #endif

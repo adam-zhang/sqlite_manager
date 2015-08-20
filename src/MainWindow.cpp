@@ -13,12 +13,16 @@
 #include "AboutDialog.h"
 #include <QMenu>
 #include <QMenuBar>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
 {
 	setCentralWidget(new MainWidget);
 	createMenus();
+	setPosition();
 }
 
 
@@ -36,6 +40,11 @@ void MainWindow::createMenus()
 void MainWindow::createDatabaseMenu()
 {
 	databaseMenu_ = menuBar()->addMenu(tr("&Databashe"));
+	newDatabaseAction_ = databaseMenu_->addAction("&New Database");
+	connect(newDatabaseAction_, SIGNAL(triggered()), this, SLOT(onNewDatabase()));
+	
+	quitAction_ = databaseMenu_->addAction(tr("E&xit"));
+	connect(quitAction_, SIGNAL(triggered()), this, SLOT(onQuit()));
 }
 
 void MainWindow::createTableMenu()
@@ -73,9 +82,34 @@ void MainWindow::createHelpMenu()
 	connect(aboutAction_, SIGNAL(triggered()), this, SLOT(onAboutAction()));
 }
 
-void MainWindow::onAboutAction()
+void MainWindow::onAbout()
 {
-	AboutDialog dialog;
+	AboutDialog dialog(this);
 	dialog.exec();
 }
 
+void MainWindow::setPosition()
+{
+	int width = 800;
+	int height = 600;
+	int w = QApplication::desktop()->width();
+	int h = QApplication::desktop()->height();
+	int x = (w - width) >> 1;
+	int y = (h - height) >> 1;
+	setGeometry(x, y, width, height);
+}
+
+void MainWindow::onNewDatabase()
+{
+}
+
+void MainWindow::onQuit()
+{
+	QString str(tr("Are you sure to quit this program"));
+	if (QMessageBox::question(this,
+			tr("Sqlite"),
+			str,
+			QMessageBox::Yes 
+			| QMessageBox::No) == QMessageBox::Yes)
+		close();
+}

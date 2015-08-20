@@ -13,4 +13,9 @@
 
 AboutDialog::AboutDialog(QWidget* parent)
 {
+	createWidgets();
+}
+
+void AboutDialog::createWidgets()
+{
 }
