@@ -13,10 +13,37 @@
 
 #include <QMainWindow>
 
+class QMenu;
+class QAction;
+
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 public:
 	MainWindow(QWidget* parent = 0);
+private:
+	void createMenus();
+	void createDatabaseMenu();
+	void createTableMenu();
+	void createIndexMenu();
+	void createViewMenu();
+	void createTriggerMenu();
+	void createToolsMenu();
+	void createHelpMenu();
+private:
+	QMenu* databaseMenu_;
+	QMenu* tableMenu_;
+	QMenu* indexMenu_;
+	QMenu* viewMenu_;
+	QMenu* triggerMenu_;
+	QMenu* toolsMenu_;
+	QMenu* helpMenu_;
+	
+//Actions:
+	QAction* aboutAction_;
+
+private slots:
+	void onAboutAction();
+
 };
 #endif

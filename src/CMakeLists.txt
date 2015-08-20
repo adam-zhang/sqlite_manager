@@ -18,10 +18,12 @@ set(sources
 	appMain.cpp 
 	MainWindow.cpp
 	MainWidget.cpp
+	AboutDialog.cpp
 	)
 set(headers 
 	MainWindow.h
 	MainWidget.h
+	AboutDialog.h
 	)
 set(moc_sources ${headers})
 QT4_WRAP_CPP(mocs ${headers})
