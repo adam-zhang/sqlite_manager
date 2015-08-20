@@ -11,11 +11,15 @@
 #include "MainWindow.h"
 #include "MainWidget.h"
 #include "AboutDialog.h"
+#include "DatabaseNameDialog.h"
+#include "Assistant.h"
 #include <QMenu>
 #include <QMenuBar>
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QMessageBox>
+#include <QDebug>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
@@ -79,7 +83,7 @@ void MainWindow::createHelpMenu()
 {
 	helpMenu_ = menuBar()->addMenu("&Help");
 	aboutAction_ = helpMenu_->addAction("&About");
-	connect(aboutAction_, SIGNAL(triggered()), this, SLOT(onAboutAction()));
+	connect(aboutAction_, SIGNAL(triggered()), this, SLOT(onAbout()));
 }
 
 void MainWindow::onAbout()
@@ -100,6 +104,49 @@ void MainWindow::setPosition()
 }
 
 void MainWindow::onNewDatabase()
+{
+	QString databaseName = getNewDatabaseName();
+	if(databaseName.length() == 0)
+	{
+		QMessageBox::critical(this,
+				tr("Sqlite"),
+				tr("Invalid file name!"));
+		return;
+	}
+	qDebug() << databaseName;
+	createDatabase(databaseName);
+}
+
+QString MainWindow::getNewDatabaseName()
+{
+	QString fileName = getFileName();
+	if (!fileName.length())
+		return QString();
+	QString path = getPath();
+	if (!path.length())
+		return QString();
+	return path + getSeparater() + fileName + ".sqlite";
+}
+
+QString MainWindow::getFileName()
+{
+	DatabaseNameDialog dialog;
+	dialog.exec();
+	return dialog.fileName();
+}
+
+
+QString MainWindow::getPath()
+{
+	QFileDialog fileDialog;
+	fileDialog.setFileMode(QFileDialog::Directory);
+	if(!fileDialog.exec())
+		return QString();
+	return fileDialog.selectedFiles()[0];
+}
+
+
+void MainWindow::createDatabase(const QString& databaseName)
 {
 }
 

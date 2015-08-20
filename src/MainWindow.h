@@ -32,6 +32,10 @@ private:
 	void createHelpMenu();
 private:
 	void setPosition();
+	QString getNewDatabaseName();
+	QString getFileName();
+	QString getPath();
+	void createDatabase(const QString& databaseName);
 private:
 	QMenu* databaseMenu_;
 	QMenu* tableMenu_;
