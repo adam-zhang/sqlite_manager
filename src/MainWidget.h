@@ -18,6 +18,8 @@ class MainWidget : public QWidget
 	Q_OBJECT 
 public:
 	MainWidget(QWidget* parent = 0);
+private:
+	void createWidgets();
 };
 
 #endif

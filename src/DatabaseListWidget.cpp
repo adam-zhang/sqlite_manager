@@ -1,24 +1,17 @@
 /*=============================================================================
-#     FileName: MainWidget.cpp
+#     FileName: DatabaseListWidget.cpp
 #         Desc: 
 #       Author: Mingping (Adam) Zhang
 #        Email: mingpingzhang@163.com
 #     HomePage: 
 #      Version: 0.0.1
-#   LastChange: 2015-08-20 10:52:00
+#   LastChange: 2015-08-21 07:21:38
 #      History:
 =============================================================================*/
-#include "MainWidget.h"
-#include <QSplitter>
 
-MainWidget::MainWidget(QWidget* parent)
+#include "DatabaseListWidget.h"
+
+DatabaseListWidget::DatabaseListWidget(QWidget* parent)
 	: QWidget(parent)
 {
-	createWidgets();
-}
-
-void MainWidget::createWidgets()
-{
-	QSplitter* splitter = new QSplitter(Qt::Horizontal, this);
-
 }
