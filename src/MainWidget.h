@@ -1,22 +1,23 @@
 /*=============================================================================
-#     FileName: MainWindow.h
+#     FileName: MainWidget.h
 #         Desc: 
 #       Author: Mingping (Adam) Zhang
 #        Email: mingpingzhang@163.com
 #     HomePage: 
 #      Version: 0.0.1
-#   LastChange: 2015-08-20 10:47:51
+#   LastChange: 2015-08-20 10:55:00
 #      History:
 =============================================================================*/
-#ifndef __MAINWINDOW__H
-#define __MAINWINDOW__H
+#ifndef __MAINWIDGET__H
+#define __MAINWIDGET__H
 
-#include <QMainWindow>
+#include <QWidget>
 
-class MainWindow : public QMainWindow
+class MainWidget : public QWidget
 {
-	Q_OBJECT
+	Q_OBJECT 
 public:
-	MainWindow(QWidget* parent = 0);
+	MainWidget(QWidget* parent = 0);
 };
+
 #endif

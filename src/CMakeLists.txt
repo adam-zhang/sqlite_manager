@@ -14,8 +14,15 @@ cmake_minimum_required(VERSION 2.8)
 find_package(Qt4 REQUIRED)
 include(${QT_USE_FILE})
 #set(QT_DONT_USE_QTGUI true)
-set(sources appMain.cpp MainWindow.cpp)
-set(headers MainWindow.h)
+set(sources 
+	appMain.cpp 
+	MainWindow.cpp
+	MainWidget.cpp
+	)
+set(headers 
+	MainWindow.h
+	MainWidget.h
+	)
 set(moc_sources ${headers})
 QT4_WRAP_CPP(mocs ${headers})
 add_executable(sqlite_manager ${sources} ${mocs} ${headers})
