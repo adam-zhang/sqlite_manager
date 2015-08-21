@@ -9,6 +9,8 @@
 #      History:
 =============================================================================*/
 #include "MainWidget.h"
+#include "DatabaseListWidget.h"
+#include "DetailWidget.h"
 #include <QSplitter>
 
 MainWidget::MainWidget(QWidget* parent)
@@ -20,5 +22,6 @@ MainWidget::MainWidget(QWidget* parent)
 void MainWidget::createWidgets()
 {
 	QSplitter* splitter = new QSplitter(Qt::Horizontal, this);
-
+	splitter->addWidget(new DatabaseListWidget);
+	splitter->addWidget(new DetailWidget);
 }

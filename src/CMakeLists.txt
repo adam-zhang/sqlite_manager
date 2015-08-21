@@ -13,7 +13,6 @@ project(sqlite_manager)
 cmake_minimum_required(VERSION 2.8)
 find_package(Qt4 REQUIRED)
 include(${QT_USE_FILE})
-#set(QT_DONT_USE_QTGUI true)
 set(sources 
 	appMain.cpp 
 	MainWindow.cpp
@@ -23,6 +22,7 @@ set(sources
 	Assistant.cpp
 	Database.cpp
 	DatabaseListWidget.cpp
+	DetailWidget.cpp
 	)
 set(moc_headers 
 	MainWindow.h
@@ -30,6 +30,7 @@ set(moc_headers
 	AboutDialog.h
 	DatabaseNameDialog.h
 	DatabaseListWidget.h
+	DetailWidget.h
 	)
 set(headers 
 	${moc_headers}
