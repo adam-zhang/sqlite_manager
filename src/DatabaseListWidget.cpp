@@ -10,8 +10,12 @@
 =============================================================================*/
 
 #include "DatabaseListWidget.h"
+#include <QListView>
+#include <QVBoxLayout>
 
 DatabaseListWidget::DatabaseListWidget(QWidget* parent)
 	: QWidget(parent)
 {
+	QVBoxLayout* layout = new QVBoxLayout(this);
+	layout->addWidget(new QListView);
 }

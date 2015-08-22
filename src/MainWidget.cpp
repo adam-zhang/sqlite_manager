@@ -21,7 +21,8 @@ MainWidget::MainWidget(QWidget* parent)
 
 void MainWidget::createWidgets()
 {
-	QSplitter* splitter = new QSplitter(Qt::Horizontal, this);
+	QSplitter* splitter = new QSplitter(this);
 	splitter->addWidget(new DatabaseListWidget);
 	splitter->addWidget(new DetailWidget);
+	splitter->setStretchFactor(1, 20);
 }
