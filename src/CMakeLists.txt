@@ -23,6 +23,7 @@ set(sources
 	Database.cpp
 	DatabaseListWidget.cpp
 	DetailWidget.cpp
+	OpenedDatabases.cpp
 	)
 set(moc_headers 
 	MainWindow.h
@@ -36,6 +37,7 @@ set(headers
 	${moc_headers}
 	Assistant.h
 	Database.h
+	OpenedDatabases.h
 	)
 #set(mocs ${moc_headers})
 QT4_WRAP_CPP(mocs ${moc_headers})
