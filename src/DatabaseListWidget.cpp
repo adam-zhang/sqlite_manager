@@ -10,6 +10,7 @@
 =============================================================================*/
 
 #include "DatabaseListWidget.h"
+#include "OpenedDatabases.h"
 #include <QListView>
 #include <QVBoxLayout>
 
@@ -18,4 +19,14 @@ DatabaseListWidget::DatabaseListWidget(QWidget* parent)
 {
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->addWidget(new QListView);
+}
+
+void DatabaseListWidget::addDatabase(const QString& name)
+{
+	list_->addDatabase(name);
+}
+
+void DatabaseListWidget::removeDatabase(const QString& name)
+{
+	list_->removeDatabase(name);
 }

@@ -11,12 +11,20 @@
 
 #ifndef __DATABASELISTWIDGET__H
 #define __DATABASELISTWIDGET__H
+
 #include <QWidget>
+
+class OpenedDatabases;
 
 class DatabaseListWidget : public QWidget
 {
 public:
 	DatabaseListWidget(QWidget* parent = 0);
+private:
+	QScopedPointer<OpenedDatabases> list_;
+public:
+	void addDatabase(const QString& name);
+	void removeDatabase(const QString& name);
 };
 
 #endif

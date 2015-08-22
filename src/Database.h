@@ -12,15 +12,65 @@
 #define __DATABASE__H
 
 #include <QObject>
+#include <QSharedPointer>
 
 class Database : public QObject
 {
 public:
-	Database(QObject* parent = 0);
-	Database(const QString& name, QObject* parent);
+	explicit Database(QObject* parent = 0);
+	Database(const QString& name, QObject* parent = 0);
 public:
 	const QString& name()const;
 private:
 	QString name_;
 };
+
+//bool operator==(const Database& database, const QString& name)
+//{
+//	return database.name() == name;
+//}
+//bool operator==(const QString& name,  const Database& database)
+//{
+//	return name == database.name();
+//}
+//bool operator==(const Database& left, const Database& right)
+//{
+//	return left.name() == right.name();
+//}
+
+//bool operator==(const QString& name, const QSharedPointer<Database>& database)
+//{
+//	return name == database->name();
+//}
+//
+//bool operator==(const QSharedPointer<Database>& database, const QString& name)
+//{
+//	return name == database->name();
+//}
+//
+//bool operator!=(const QString& name, QSharedPointer<Database>& database)
+//{
+//	return !(name == database->name());
+//}
+//
+//bool operator!=(const QSharedPointer<Database>& database, const QString& name)
+//{
+//	return !(name == database->name());
+//}
+//
+//bool operator!=(const Database& database, const QString& name)
+//{
+//	return ! (database.name() == name);
+//}
+//
+//bool operator!=(const QString& name, const Database& database)
+//{
+//	return !(name == database.name());
+//}
+//
+//bool operator!=(const Database& left, const Database& right)
+//{
+//	return !(left.name() == right.name());
+//}
+//
 #endif

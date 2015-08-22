@@ -26,3 +26,4 @@ const QString& Database::name()const
 {
 	return name_;
 }
+
