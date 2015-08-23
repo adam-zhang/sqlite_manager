@@ -13,13 +13,21 @@
 
 #include <QWidget>
 
+class DatabaseListWidget;
+class DetailWidget;
+
 class MainWidget : public QWidget
 {
 	Q_OBJECT 
 public:
 	MainWidget(QWidget* parent = 0);
 private:
+	DatabaseListWidget* 	databaseList_;
+	DetailWidget*		detailWidget_;
+private:
 	void createWidgets();
+public:
+	void addDatabase(const QString& databaseName);
 };
 
 #endif

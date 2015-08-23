@@ -15,12 +15,15 @@
 
 class QMenu;
 class QAction;
+class MainWidget;
 
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 public:
 	MainWindow(QWidget* parent = 0);
+private:
+	MainWidget* centralWidget_;
 private:
 	void createMenus();
 	void createDatabaseMenu();
@@ -36,6 +39,7 @@ private:
 	QString getFileName();
 	QString getPath();
 	void createDatabase(const QString& databaseName);
+	void addDatabase(const QString&);
 private:
 	QMenu* databaseMenu_;
 	QMenu* tableMenu_;
@@ -48,6 +52,7 @@ private:
 //Actions:
 	QAction* aboutAction_;
 	QAction* newDatabaseAction_;
+	QAction* connectDatabaseAction_;
 	QAction* quitAction_;
 
 private slots:

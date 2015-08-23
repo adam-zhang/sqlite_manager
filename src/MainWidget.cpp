@@ -15,6 +15,8 @@
 
 MainWidget::MainWidget(QWidget* parent)
 	: QWidget(parent)
+	  ,databaseList_(NULL)
+	  ,detailWidget_(NULL)
 {
 	createWidgets();
 }
@@ -22,7 +24,15 @@ MainWidget::MainWidget(QWidget* parent)
 void MainWidget::createWidgets()
 {
 	QSplitter* splitter = new QSplitter(this);
-	splitter->addWidget(new DatabaseListWidget);
-	splitter->addWidget(new DetailWidget);
+	databaseList_ = new DatabaseListWidget;
+	detailWidget_ = new DetailWidget;
+	splitter->addWidget(databaseList_);
+	splitter->addWidget(detailWidget_);
 	splitter->setStretchFactor(1, 20);
 }
+
+void MainWidget::addDatabase(const QString& databaseName)
+{
+	databaseList_->addDatabase(databaseName);
+}
+

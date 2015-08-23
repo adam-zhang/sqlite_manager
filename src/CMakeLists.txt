@@ -10,6 +10,7 @@
 #=============================================================================
 
 project(sqlite_manager)
+set(CMAKE_BUILD_TYPE Debug)
 cmake_minimum_required(VERSION 2.8)
 find_package(Qt4 REQUIRED)
 include(${QT_USE_FILE})
@@ -24,6 +25,7 @@ set(sources
 	DatabaseListWidget.cpp
 	DetailWidget.cpp
 	OpenedDatabases.cpp
+	PathAlgo.cpp
 	)
 set(moc_headers 
 	MainWindow.h
@@ -38,6 +40,7 @@ set(headers
 	Assistant.h
 	Database.h
 	OpenedDatabases.h
+	PathAlgo.h
 	)
 #set(mocs ${moc_headers})
 QT4_WRAP_CPP(mocs ${moc_headers})

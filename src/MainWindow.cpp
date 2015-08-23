@@ -23,8 +23,10 @@
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
+	  ,centralWidget_(NULL)
 {
-	setCentralWidget(new MainWidget);
+	centralWidget_ = new MainWidget;
+	setCentralWidget(centralWidget_);
 	createMenus();
 	setPosition();
 }
@@ -115,6 +117,12 @@ void MainWindow::onNewDatabase()
 	}
 	qDebug() << databaseName;
 	createDatabase(databaseName);
+	addDatabase(databaseName);
+}
+
+void MainWindow::addDatabase(const QString& databaseName)
+{
+	centralWidget_->addDatabase(databaseName);
 }
 
 QString MainWindow::getNewDatabaseName()
