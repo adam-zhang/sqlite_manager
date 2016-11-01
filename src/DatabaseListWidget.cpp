@@ -10,7 +10,7 @@
 =============================================================================*/
 
 #include "DatabaseListWidget.h"
-#include "OpenedDatabases.h"
+//#include "OpenedDatabases.h"
 #include <cassert>
 #include <QListWidget>
 #include <QVBoxLayout>
@@ -18,7 +18,7 @@
 DatabaseListWidget::DatabaseListWidget(QWidget* parent)
 	: QWidget(parent)
 	  , listWidget_(NULL)
-	  , list_(new OpenedDatabases)
+	  //, list_(new OpenedDatabases)
 {
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	listWidget_ = new QListWidget;
@@ -27,11 +27,11 @@ DatabaseListWidget::DatabaseListWidget(QWidget* parent)
 
 void DatabaseListWidget::addDatabase(const QString& name)
 {
-	list_->addDatabase(name);
+	//list_->addDatabase(name);
 	listWidget_->addItem(name);
 }
 
 void DatabaseListWidget::removeDatabase(const QString& name)
 {
-	list_->removeDatabase(name);
+	//list_->removeDatabase(name);
 }

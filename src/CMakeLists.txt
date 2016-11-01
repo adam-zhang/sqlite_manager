@@ -24,8 +24,9 @@ set(sources
 	Database.cpp
 	DatabaseListWidget.cpp
 	DetailWidget.cpp
-	OpenedDatabases.cpp
+	#OpenedDatabases.cpp
 	PathAlgo.cpp
+	Serilizer.cpp
 	)
 set(moc_headers 
 	MainWindow.h
@@ -34,12 +35,13 @@ set(moc_headers
 	DatabaseNameDialog.h
 	DatabaseListWidget.h
 	DetailWidget.h
+	Serilizer.h
 	)
 set(headers 
 	${moc_headers}
 	Assistant.h
 	Database.h
-	OpenedDatabases.h
+	#OpenedDatabases.h
 	PathAlgo.h
 	)
 #set(mocs ${moc_headers})

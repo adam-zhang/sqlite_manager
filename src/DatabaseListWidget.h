@@ -14,7 +14,7 @@
 
 #include <QWidget>
 
-class OpenedDatabases;
+//class OpenedDatabases;
 class QListWidget;
 
 class DatabaseListWidget : public QWidget
@@ -23,7 +23,7 @@ public:
 	DatabaseListWidget(QWidget* parent = 0);
 private:
 	QListWidget* listWidget_;
-	QScopedPointer<OpenedDatabases> list_;
+	//QScopedPointer<OpenedDatabases> list_;
 public:
 	void addDatabase(const QString& name);
 	void removeDatabase(const QString& name);
