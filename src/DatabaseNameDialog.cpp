@@ -30,7 +30,7 @@ const QString DatabaseNameDialog::fileName()
 void DatabaseNameDialog::createWidgets()
 {
 	QVBoxLayout* layout = new QVBoxLayout(this);
-	layout->addWidget(new QLabel(tr("The suffix .sqlite will append automatically")));
+	layout->addWidget(new QLabel(tr("The suffix of database \".sqlite\" will append automatically")));
 	lineEdit_ = new QLineEdit;
 	layout->addWidget(lineEdit_);
 	QDialogButtonBox* buttonGroup = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);

@@ -25,14 +25,14 @@ private:
 	QString name_;
 };
 
-bool operator==(const Database& database, const QString& name);
-bool operator==(const QString& name,  const Database& database);
-bool operator==(const Database& left, const Database& right);
-bool operator==(const QString& name, const QSharedPointer<Database>& database);
-bool operator==(const QSharedPointer<Database>& database, const QString& name);
-bool operator!=(const QString& name, QSharedPointer<Database>& database);
-bool operator!=(const QSharedPointer<Database>& database, const QString& name);
-bool operator!=(const Database& database, const QString& name);
-bool operator!=(const QString& name, const Database& database);
-bool operator!=(const Database& left, const Database& right);
+//bool operator==(const Database& database, const QString& name);
+//bool operator==(const QString& name,  const Database& database);
+//bool operator==(const Database& left, const Database& right);
+//bool operator==(const QString& name, const QSharedPointer<Database>& database);
+//bool operator==(const QSharedPointer<Database>& database, const QString& name);
+//bool operator!=(const QString& name, QSharedPointer<Database>& database);
+//bool operator!=(const QSharedPointer<Database>& database, const QString& name);
+//bool operator!=(const Database& database, const QString& name);
+//bool operator!=(const QString& name, const Database& database);
+//bool operator!=(const Database& left, const Database& right);
 #endif

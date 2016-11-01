@@ -9,5 +9,7 @@ class Serilizer : QObject
 public:
 	Serilizer(QObject* parent = NULL);
 	virtual ~Serilizer();
+public:
+	//bool save()
 };
 #endif//__SERILIZER__H

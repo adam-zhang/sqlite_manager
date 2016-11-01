@@ -41,20 +41,7 @@ private:
 	void createDatabase(const QString& databaseName);
 	void addDatabase(const QString&);
 private:
-	QMenu* databaseMenu_;
-	QMenu* tableMenu_;
-	QMenu* indexMenu_;
-	QMenu* viewMenu_;
-	QMenu* triggerMenu_;
-	QMenu* toolsMenu_;
-	QMenu* helpMenu_;
 	
-//Actions:
-	QAction* aboutAction_;
-	QAction* newDatabaseAction_;
-	QAction* connectDatabaseAction_;
-	QAction* quitAction_;
-
 private slots:
 	void onAbout();
 	void onNewDatabase();

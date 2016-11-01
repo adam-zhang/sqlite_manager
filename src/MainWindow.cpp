@@ -23,10 +23,8 @@
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
-	  ,centralWidget_(NULL)
 {
-	centralWidget_ = new MainWidget;
-	setCentralWidget(centralWidget_);
+	setCentralWidget(new MainWidget(this));
 	createMenus();
 	setPosition();
 }
@@ -45,47 +43,48 @@ void MainWindow::createMenus()
 
 void MainWindow::createDatabaseMenu()
 {
-	databaseMenu_ = menuBar()->addMenu(tr("&Databashe"));
-	newDatabaseAction_ = databaseMenu_->addAction("&New Database");
-	connect(newDatabaseAction_, SIGNAL(triggered()), this, SLOT(onNewDatabase()));
+	QMenu* databaseMenu = menuBar()->addMenu(tr("&Databashe"));
+	QAction* action = databaseMenu->addAction("&New Database");
+	connect(action, SIGNAL(triggered()), this, SLOT(onNewDatabase()));
+	action = databaseMenu->addAction("&Open Database");
+	connect(action, SIGNAL(triggered()), this, SLOT(onOpenDatabase()));
+
 	
-	quitAction_ = databaseMenu_->addAction(tr("E&xit"));
-	connect(quitAction_, SIGNAL(triggered()), this, SLOT(onQuit()));
+	action = databaseMenu->addAction(tr("E&xit"));
+	connect(action, SIGNAL(triggered()), this, SLOT(onQuit()));
 }
 
 void MainWindow::createTableMenu()
 {
-	tableMenu_ = menuBar()->addMenu("&Table");
+	QMenu* tableMenu = menuBar()->addMenu("&Table");
 }
 
 void MainWindow::createIndexMenu()
 {
-	indexMenu_ = menuBar()->addMenu("&Index");
+	QMenu* indexMenu = menuBar()->addMenu("&Index");
 }
 
 void MainWindow::createViewMenu()
 {
-	viewMenu_ = menuBar()->addMenu("&View");
+	QMenu* viewMenu = menuBar()->addMenu("&View");
 }
 
 void MainWindow::createTriggerMenu()
 {
-	triggerMenu_ = menuBar()->addMenu("T&rigger");
+	QMenu* triggerMenu = menuBar()->addMenu("T&rigger");
 }
-
-
 
 void MainWindow::createToolsMenu()
 {
-	toolsMenu_ = menuBar()->addMenu("T&ools");
+	QMenu* toolsMenu = menuBar()->addMenu("T&ools");
 }
 
 
 void MainWindow::createHelpMenu()
 {
-	helpMenu_ = menuBar()->addMenu("&Help");
-	aboutAction_ = helpMenu_->addAction("&About");
-	connect(aboutAction_, SIGNAL(triggered()), this, SLOT(onAbout()));
+	QMenu* helpMenu = menuBar()->addMenu("&Help");
+	QAction* aboutAction = helpMenu->addAction("&About");
+	connect(aboutAction, SIGNAL(triggered()), this, SLOT(onAbout()));
 }
 
 void MainWindow::onAbout()
@@ -122,7 +121,7 @@ void MainWindow::onNewDatabase()
 
 void MainWindow::addDatabase(const QString& databaseName)
 {
-	centralWidget_->addDatabase(databaseName);
+	//centralWidget->addDatabase(databaseName);
 }
 
 QString MainWindow::getNewDatabaseName()
